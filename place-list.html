@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Orte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Orte</h1>
+    <a href="place-add.html">Hinzufügen</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Ort</th>
+                <th>Kanton</th>
+                <th>Reisezeit ab HB</th>
+                <th>Begründung</th>
+                <th>Löschen</th>
+            </tr>
+        </thead>
+        <tbody id="place-table"></tbody>
+    </table>
+    <a href="index.html">Zurück zur Startseite</a>
+    <script src="script.js"></script>
+    <script>loadPlaces();</script>
+</body>
+</html>
