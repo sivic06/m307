@@ -39,11 +39,11 @@ function setupPlaceForm() {
             body: JSON.stringify({
                 ort: form.ort.value,
                 kanton: form.kanton.value,
-                reisezeit: form.reisezeit.value,
+                zeitabhb: form.reisezeit.value,
                 begruendung: form.begruendung.value
             })
         }).then(() => {
-            window.location = "place-list.html";
+           window.location = "place-list.html";
         });
     };
 }
