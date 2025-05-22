@@ -48,33 +48,40 @@ function setupPlaceForm() {
     };
 }
 
-// Daten
- function loadDates() {
-    const res =  fetch(`${pbURL}/date/records`);
-    const data =  res.json();
-    const tbody = document.getElementById("date-table");
-    tbody.innerHTML = "";
-    data.items.forEach(item => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${item.datum}</td>
-            <td>${item.ja_nein}</td>
-            <td>${item.uhrzeit}</td>
-            <td>${item.begruendung}</td>
-            <td><button onclick="deleteDate('${item.id}')">Löschen</button></td>
-        `;
-        tbody.appendChild(tr);
-    });
+// Daten laden
+function loadDates() {
+    fetch(pbURL + '/date/records')
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.getElementById("date-table");
+            tbody.innerHTML = "";
+            data.items.forEach(item => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${item.datum}</td>
+                    <td>${item.ja_nein}</td>
+                    <td>${item.uhrzeit}</td>
+                    <td>${item.begruendung}</td>
+                    <td><button onclick="deleteDate('${item.id}')">Löschen</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        });
 }
- function deleteDate(id) {
-     fetch(`${pbURL}/date/records/${id}`, { method: "DELETE" });
-    loadDates();
+
+// Datum löschen
+function deleteDate(id) {
+    fetch(pbURL + '/date/records/' + id, { method: "DELETE" })
+        .then(() => loadDates());
 }
+window.deleteDate = deleteDate;
+
+// Datum hinzufügen
 function setupDateForm() {
-    document.getElementById("date-form").onsubmit =  (e) => {
+    document.getElementById("date-form").onsubmit = function(e) {
         e.preventDefault();
         const form = e.target;
-         fetch(`${pbURL}/date/records`, {
+        fetch(pbURL + '/date/records', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -83,38 +90,46 @@ function setupDateForm() {
                 uhrzeit: form.uhrzeit.value,
                 begruendung: form.begruendung.value
             })
+        }).then(() => {
+            window.location = "date-list.html";
         });
-        window.location = "date-list.html";
     };
 }
 
-// Aktivitäten
- function loadActivities() {
-    const res =  fetch(`${pbURL}/activity/records`);
-    const data =  res.json();
-    const tbody = document.getElementById("activity-table");
-    tbody.innerHTML = "";
-    data.items.forEach(item => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${item.aktivitaet}</td>
-            <td>${item.coolness}</td>
-            <td>${item.kosten}</td>
-            <td>${item.zeitaufwand}</td>
-            <td><button onclick="deleteActivity('${item.id}')">Löschen</button></td>
-        `;
-        tbody.appendChild(tr);
-    });
+// Aktivitäten laden
+function loadActivities() {
+    fetch(pbURL + '/activity/records')
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.getElementById("activity-table");
+            tbody.innerHTML = "";
+            data.items.forEach(item => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${item.aktivitaet}</td>
+                    <td>${item.coolness}</td>
+                    <td>${item.kosten}</td>
+                    <td>${item.zeitaufwand}</td>
+                    <td><button onclick="deleteActivity('${item.id}')">Löschen</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        });
 }
- function deleteActivity(id) {
-     fetch(`${pbURL}/activity/records/${id}`, { method: "DELETE" });
-    loadActivities();
+
+// Aktivität löschen
+function deleteActivity(id) {
+    fetch(pbURL + '/activity/records/' + id, { method: "DELETE" })
+        .then(() => loadActivities());
 }
+window.deleteActivity = deleteActivity;
+
+// Aktivität hinzufügen
 function setupActivityForm() {
-    document.getElementById("activity-form").onsubmit =  (e) => {
+    document.getElementById("activity-form").onsubmit = function(e) {
         e.preventDefault();
         const form = e.target;
-         fetch(`${pbURL}/activity/records`, {
+        fetch(pbURL + '/activity/records', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -123,7 +138,9 @@ function setupActivityForm() {
                 kosten: form.kosten.value,
                 zeitaufwand: form.zeitaufwand.value
             })
+        }).then(() => {
+            window.location = "activity-list.html";
         });
-        window.location = "activity-list.html";
     };
 }
+
