@@ -1,34 +1,39 @@
-import PocketBase from 'pocketbase';
 const pbURL = 'https://pb18.toiwxr.easypanel.host/api/collections';
 
+// Orte laden
+function loadPlaces() {
+    fetch(pbURL + '/place/records')
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.getElementById("place-table");
+            tbody.innerHTML = "";
+            data.items.forEach(item => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${item.ort}</td>
+                    <td>${item.kanton}</td>
+                    <td>${item.reisezeit}</td>
+                    <td>${item.begruendung}</td>
+                    <td><button onclick="deletePlace('${item.id}')">Löschen</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        });
+}
 
-// Orte
-async function loadPlaces() {
-    const res = await fetch(`${pbURL}/place/records`);
-    const data = await res.json();
-    const tbody = document.getElementById("place-table");
-    tbody.innerHTML = "";
-    data.items.forEach(item => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${item.ort}</td>
-            <td>${item.kanton}</td>
-            <td>${item.reisezeit}</td>
-            <td>${item.begruendung}</td>
-            <td><button onclick="deletePlace('${item.id}')">Löschen</button></td>
-        `;
-        tbody.appendChild(tr);
-    });
+// Ort löschen
+function deletePlace(id) {
+    fetch(pbURL + '/place/records/' + id, { method: "DELETE" })
+        .then(() => loadPlaces());
 }
-async function deletePlace(id) {
-    await fetch(`${pbURL}/place/records/${id}`, { method: "DELETE" });
-    loadPlaces();
-}
+window.deletePlace = deletePlace;
+
+// Ort hinzufügen
 function setupPlaceForm() {
-    document.getElementById("place-form").onsubmit = async (e) => {
+    document.getElementById("place-form").onsubmit = function(e) {
         e.preventDefault();
         const form = e.target;
-        await fetch(`${pbURL}/place/records`, {
+        fetch(pbURL + '/place/records', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -37,15 +42,16 @@ function setupPlaceForm() {
                 reisezeit: form.reisezeit.value,
                 begruendung: form.begruendung.value
             })
+        }).then(() => {
+            window.location = "place-list.html";
         });
-        window.location = "place-list.html";
     };
 }
 
 // Daten
-async function loadDates() {
-    const res = await fetch(`${pbURL}/date/records`);
-    const data = await res.json();
+ function loadDates() {
+    const res =  fetch(`${pbURL}/date/records`);
+    const data =  res.json();
     const tbody = document.getElementById("date-table");
     tbody.innerHTML = "";
     data.items.forEach(item => {
@@ -60,15 +66,15 @@ async function loadDates() {
         tbody.appendChild(tr);
     });
 }
-async function deleteDate(id) {
-    await fetch(`${pbURL}/date/records/${id}`, { method: "DELETE" });
+ function deleteDate(id) {
+     fetch(`${pbURL}/date/records/${id}`, { method: "DELETE" });
     loadDates();
 }
 function setupDateForm() {
-    document.getElementById("date-form").onsubmit = async (e) => {
+    document.getElementById("date-form").onsubmit =  (e) => {
         e.preventDefault();
         const form = e.target;
-        await fetch(`${pbURL}/date/records`, {
+         fetch(`${pbURL}/date/records`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -83,9 +89,9 @@ function setupDateForm() {
 }
 
 // Aktivitäten
-async function loadActivities() {
-    const res = await fetch(`${pbURL}/activity/records`);
-    const data = await res.json();
+ function loadActivities() {
+    const res =  fetch(`${pbURL}/activity/records`);
+    const data =  res.json();
     const tbody = document.getElementById("activity-table");
     tbody.innerHTML = "";
     data.items.forEach(item => {
@@ -100,15 +106,15 @@ async function loadActivities() {
         tbody.appendChild(tr);
     });
 }
-async function deleteActivity(id) {
-    await fetch(`${pbURL}/activity/records/${id}`, { method: "DELETE" });
+ function deleteActivity(id) {
+     fetch(`${pbURL}/activity/records/${id}`, { method: "DELETE" });
     loadActivities();
 }
 function setupActivityForm() {
-    document.getElementById("activity-form").onsubmit = async (e) => {
+    document.getElementById("activity-form").onsubmit =  (e) => {
         e.preventDefault();
         const form = e.target;
-        await fetch(`${pbURL}/activity/records`, {
+         fetch(`${pbURL}/activity/records`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
