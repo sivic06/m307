@@ -1,8 +1,10 @@
-const pbURL = "http://127.0.0.1:8090/api/collections"; // Passe ggf. an
+import PocketBase from 'pocketbase';
+const pbURL = 'https://pb18.toiwxr.easypanel.host/api/collections';
+
 
 // Orte
 async function loadPlaces() {
-    const res = await fetch(`${pbURL}/Ort/records`);
+    const res = await fetch(`${pbURL}/place/records`);
     const data = await res.json();
     const tbody = document.getElementById("place-table");
     tbody.innerHTML = "";
@@ -19,14 +21,14 @@ async function loadPlaces() {
     });
 }
 async function deletePlace(id) {
-    await fetch(`${pbURL}/Ort/records/${id}`, { method: "DELETE" });
+    await fetch(`${pbURL}/place/records/${id}`, { method: "DELETE" });
     loadPlaces();
 }
 function setupPlaceForm() {
     document.getElementById("place-form").onsubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
-        await fetch(`${pbURL}/Ort/records`, {
+        await fetch(`${pbURL}/place/records`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -42,7 +44,7 @@ function setupPlaceForm() {
 
 // Daten
 async function loadDates() {
-    const res = await fetch(`${pbURL}/Datum/records`);
+    const res = await fetch(`${pbURL}/date/records`);
     const data = await res.json();
     const tbody = document.getElementById("date-table");
     tbody.innerHTML = "";
@@ -59,14 +61,14 @@ async function loadDates() {
     });
 }
 async function deleteDate(id) {
-    await fetch(`${pbURL}/Datum/records/${id}`, { method: "DELETE" });
+    await fetch(`${pbURL}/date/records/${id}`, { method: "DELETE" });
     loadDates();
 }
 function setupDateForm() {
     document.getElementById("date-form").onsubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
-        await fetch(`${pbURL}/Datum/records`, {
+        await fetch(`${pbURL}/date/records`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -82,7 +84,7 @@ function setupDateForm() {
 
 // Aktivitäten
 async function loadActivities() {
-    const res = await fetch(`${pbURL}/Aktivitaet/records`);
+    const res = await fetch(`${pbURL}/activity/records`);
     const data = await res.json();
     const tbody = document.getElementById("activity-table");
     tbody.innerHTML = "";
@@ -99,14 +101,14 @@ async function loadActivities() {
     });
 }
 async function deleteActivity(id) {
-    await fetch(`${pbURL}/Aktivitaet/records/${id}`, { method: "DELETE" });
+    await fetch(`${pbURL}/activity/records/${id}`, { method: "DELETE" });
     loadActivities();
 }
 function setupActivityForm() {
     document.getElementById("activity-form").onsubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
-        await fetch(`${pbURL}/Aktivitaet/records`, {
+        await fetch(`${pbURL}/activity/records`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
