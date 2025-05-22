@@ -12,7 +12,7 @@ function loadPlaces() {
                 tr.innerHTML = `
                     <td>${item.ort}</td>
                     <td>${item.kanton}</td>
-                    <td>${item.reisezeit}</td>
+                    <td>${item.zeitabhb}</td>
                     <td>${item.begruendung}</td>
                     <td><button onclick="deletePlace('${item.id}')">Löschen</button></td>
                 `;
