@@ -1,8 +1,8 @@
-const BASE_URL = "http://127.0.0.1:8090/api/collections"; // Passe ggf. an
+const pbURL = "http://127.0.0.1:8090/api/collections"; // Passe ggf. an
 
 // Orte
 async function loadPlaces() {
-    const res = await fetch(`${BASE_URL}/Ort/records`);
+    const res = await fetch(`${pbURL}/Ort/records`);
     const data = await res.json();
     const tbody = document.getElementById("place-table");
     tbody.innerHTML = "";
@@ -19,14 +19,14 @@ async function loadPlaces() {
     });
 }
 async function deletePlace(id) {
-    await fetch(`${BASE_URL}/Ort/records/${id}`, { method: "DELETE" });
+    await fetch(`${pbURL}/Ort/records/${id}`, { method: "DELETE" });
     loadPlaces();
 }
 function setupPlaceForm() {
     document.getElementById("place-form").onsubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
-        await fetch(`${BASE_URL}/Ort/records`, {
+        await fetch(`${pbURL}/Ort/records`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -42,7 +42,7 @@ function setupPlaceForm() {
 
 // Daten
 async function loadDates() {
-    const res = await fetch(`${BASE_URL}/Datum/records`);
+    const res = await fetch(`${pbURL}/Datum/records`);
     const data = await res.json();
     const tbody = document.getElementById("date-table");
     tbody.innerHTML = "";
@@ -59,14 +59,14 @@ async function loadDates() {
     });
 }
 async function deleteDate(id) {
-    await fetch(`${BASE_URL}/Datum/records/${id}`, { method: "DELETE" });
+    await fetch(`${pbURL}/Datum/records/${id}`, { method: "DELETE" });
     loadDates();
 }
 function setupDateForm() {
     document.getElementById("date-form").onsubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
-        await fetch(`${BASE_URL}/Datum/records`, {
+        await fetch(`${pbURL}/Datum/records`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -82,7 +82,7 @@ function setupDateForm() {
 
 // Aktivitäten
 async function loadActivities() {
-    const res = await fetch(`${BASE_URL}/Aktivitaet/records`);
+    const res = await fetch(`${pbURL}/Aktivitaet/records`);
     const data = await res.json();
     const tbody = document.getElementById("activity-table");
     tbody.innerHTML = "";
@@ -99,14 +99,14 @@ async function loadActivities() {
     });
 }
 async function deleteActivity(id) {
-    await fetch(`${BASE_URL}/Aktivitaet/records/${id}`, { method: "DELETE" });
+    await fetch(`${pbURL}/Aktivitaet/records/${id}`, { method: "DELETE" });
     loadActivities();
 }
 function setupActivityForm() {
     document.getElementById("activity-form").onsubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
-        await fetch(`${BASE_URL}/Aktivitaet/records`, {
+        await fetch(`${pbURL}/Aktivitaet/records`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
