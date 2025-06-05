@@ -77,3 +77,24 @@ main {
   display: flex;
   align-items: end;
 }
+
+table * {
+    padding: 5px 10px;
+}
+
+td {
+  border-right: 2px solid #ef626c;
+}
+
+td:last-child {
+  border-right: none;  
+}
+
+th {
+  border-right: 2px solid #ef626c;
+  border-bottom: #ef626c 2px dotted;
+}
+
+th:last-child {
+  border-right: none;
+}
