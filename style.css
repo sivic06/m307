@@ -21,7 +21,6 @@ nav {
   width: auto;
   padding: 0px 20px;
   border-bottom: solid #ef626c 3px;
-  margin: 0px 50px;
 }
 
 ul {
@@ -42,7 +41,7 @@ li a {
   text-decoration: none;
 }
 
-a.active {
+.active {
   color: #ef626c;
   font-size: 3rem;
   font-weight: bold;
@@ -50,7 +49,7 @@ a.active {
 
 header {
   height: 20vh;
-    margin: 2rem;
+  margin: 4rem 4rem 2rem 4rem;
 }
 
 main {
@@ -58,4 +57,14 @@ main {
   background-image: url(./images/main_bg.png);
   background-size: cover;
   background-position: center;
+}
+
+.header_liste{
+    display: flex;
+}
+
+.header_liste a{
+    margin-left: 4rem;
+    display: flex;
+    align-items: end;
 }
