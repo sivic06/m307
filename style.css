@@ -64,22 +64,8 @@ main {
   margin: 0;
 }
 
-#placeform {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#placeform input {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.placeform {
+  margin: 4rem 4rem 2rem 4rem;
 }
 
 .header_liste {
