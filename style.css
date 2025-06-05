@@ -54,6 +54,9 @@ header {
 
 main {
   height: 80vh;
+}
+
+.bg_image {
   background-image: url(./images/main_bg.png);
   background-size: cover;
   background-position: center;
@@ -77,12 +80,12 @@ main {
   justify-content: center;
 }
 
-.header_liste{
-    display: flex;
+.header_liste {
+  display: flex;
 }
 
-.header_liste a{
-    margin-left: 4rem;
-    display: flex;
-    align-items: end;
+.header_liste a {
+  margin-left: 4rem;
+  display: flex;
+  align-items: end;
 }
