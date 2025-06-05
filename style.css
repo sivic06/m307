@@ -54,12 +54,14 @@ header {
 
 main {
   height: 80vh;
+  margin: 0 4rem;
 }
 
 .bg_image {
   background-image: url(./images/main_bg.png);
   background-size: cover;
   background-position: center;
+  margin: 0;
 }
 
 #placeform {
