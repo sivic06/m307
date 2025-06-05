@@ -1,7 +1,61 @@
-body { font-family: Arial, sans-serif; margin: 2em; }
-table { border-collapse: collapse; width: 100%; margin-top: 1em; }
-th, td { border: 1px solid #ccc; padding: 0.5em; }
-th { background: #eee; }
-form input, form select { margin: 0.5em 0; display: block; }
-button { cursor: pointer; }
-a { margin-right: 1em; }
+* {
+  border: solid black 0px;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+nav {
+  width: auto;
+  padding: 0px 20px;
+  border-bottom: solid #ef626c 3px;
+  margin: 0px 50px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+li {
+  display: flex;
+  align-items: end;
+}
+li a {
+  color: black;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+a.active {
+  color: #ef626c;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+header {
+  height: 20vh;
+    margin: 2rem;
+}
+
+main {
+  height: 80vh;
+  background-image: url(./images/main_bg.png);
+  background-size: cover;
+  background-position: center;
+}
