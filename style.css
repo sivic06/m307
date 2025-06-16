@@ -1,5 +1,5 @@
 * {
-  border: solid black 1px;
+  border: solid black 0px;
   margin: 0;
   padding: 0;
 }
@@ -13,12 +13,9 @@ table {
   width: 100%;
 }
 
-button {
-  cursor: pointer;
-}
-
 nav {
   width: auto;
+  height: 50%;
   padding: 0px 20px;
   border-bottom: solid #ef626c 3px;
 }
@@ -48,13 +45,19 @@ li a {
 }
 
 header {
-  height: 20vh;
+  height: 10vh;
   margin: 4rem 4rem 2rem 4rem;
+  border-bottom: solid #ef626c 3px;
+}
+
+.header_index {
+  height: 20vh !important;
+  border-bottom: none;
 }
 
 main {
   height: 80vh;
-  margin: 0 4rem;
+  margin: 6rem 4rem 4rem 4rem;
 }
 
 .bg_image {
@@ -64,11 +67,47 @@ main {
   margin: 0;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .placeform {
   margin: 4rem 4rem 2rem 4rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+label{
+  margin-bottom: 4px;
+}
+
+select{
+  width: fit-content;
+  padding: 5px 10px;
+  border: black 2px solid;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+input {
+  width: 30vw;
+  padding: 5px 10px;
+  border: black 2px solid;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+button {
+  cursor: pointer;
+  width: fit-content;
+  padding: 5px 10px;
+  background: none;
+  border: #ef626c 2px solid;
+  border-radius: 5px;
+  color: #ef626c;
 }
 
 .header_liste {
@@ -79,10 +118,13 @@ main {
   margin-left: 4rem;
   display: flex;
   align-items: end;
+  text-decoration: none;
+  color: black;
+  font-size: larger;
 }
 
 table * {
-    padding: 5px 10px;
+  padding: 5px 10px;
 }
 
 td {
@@ -90,7 +132,7 @@ td {
 }
 
 td:last-child {
-  border-right: none;  
+  border-right: none;
 }
 
 th {

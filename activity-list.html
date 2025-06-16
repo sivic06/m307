@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Aktivitäten</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Aktivitäten</h1>
-    <a href="activity-add.html">Hinzufügen</a>
-    <table>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header_liste">
+        <h1 class="active">Aktivitäten</h1>
+        <a href="activity-add.html">Hinzufügen</a>
+        <a href="index.html">Zurück zur Startseite</a>
+      </div>
+    </header>
+    <main>
+      <table>
         <thead>
-            <tr>
-                <th>Aktivität</th>
-                <th>Coolness</th>
-                <th>Kosten</th>
-                <th>Zeitaufwand</th>
-                <th>Löschen</th>
-            </tr>
+          <tr>
+            <th>Aktivität</th>
+            <th>Coolness</th>
+            <th>Kosten</th>
+            <th>Zeitaufwand</th>
+            <th>Löschen</th>
+          </tr>
         </thead>
         <tbody id="activity-table"></tbody>
-    </table>
-    <a href="index.html">Zurück zur Startseite</a>
+      </table>
+    </main>
+
     <script src="script.js"></script>
-    <script>loadActivities();</script>
-</body>
+    <script>
+      loadActivities();
+    </script>
+  </body>
 </html>
