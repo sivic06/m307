@@ -106,11 +106,11 @@ function loadActivities() {
             data.items.forEach(item => { // Für jede Aktivität in den Daten
                 const tr = document.createElement("tr"); // Neue Tabellenzeile machen
                 tr.innerHTML = `
-                    <td>${item.aktivitaet}</td> // Aktivität einfügen
-                    <td>${item.coolness}</td> // Coolness einfügen
-                    <td>${item.kosten}</td> // Kosten einfügen
-                    <td>${item.zeitaufwand}</td> // Zeitaufwand einfügen
-                    <td><button onclick="deleteActivity('${item.id}')">Löschen</button></td> // Löschen-Button einfügen
+                    <td>${item.aktivitaet}</td>
+                    <td>${item.coolness}</td>
+                    <td>${item.kosten}</td>
+                    <td>${item.zeitaufwand}</td>
+                    <td><button onclick="deleteActivity('${item.id}')">Löschen</button></td> 
                 `;
                 tbody.appendChild(tr); // Zeile zur Tabelle hinzufügen
             });
