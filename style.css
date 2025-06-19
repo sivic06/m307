@@ -56,7 +56,7 @@ header {
 }
 
 main {
-  height: 80vh;
+  height: fit-content;
   margin: 6rem 4rem 4rem 4rem;
 }
 
@@ -80,11 +80,11 @@ form {
   justify-content: space-between;
 }
 
-label{
+label {
   margin-bottom: 4px;
 }
 
-select{
+select {
   width: fit-content;
   padding: 5px 10px;
   border: black 2px solid;
@@ -142,4 +142,34 @@ th {
 
 th:last-child {
   border-right: none;
+}
+
+.div_left {
+  height: 100%;
+}
+
+.date_right {
+  width: 50%;
+  background-image: url(./images/date.jpg);
+  background-size: cover;
+  border-radius: 20px;
+}
+
+.place_right {
+  width: 50%;
+  background-image: url(./images/ort.jpg);
+  background-size: cover;
+  border-radius: 20px;
+}
+
+.activity_right {
+  width: 50%;
+  background-image: url(./images/activity.jpg);
+  background-size: cover;
+  border-radius: 20px;
+}
+
+.main_add {
+  display: flex;
+  justify-content: space-between;
 }
