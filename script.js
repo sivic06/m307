@@ -56,9 +56,16 @@ function loadDates() {
             const tbody = document.getElementById("date-table");
             tbody.innerHTML = "";
             data.items.forEach(item => {
+                const date = new Date(item.datum);
+                const formattedDate = date.toLocaleDateString("de-DE", {
+                    weekday: 'short',
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric'
+                });
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
-                    <td>${item.datum}</td>
+                    <td>${formattedDate}</td>
                     <td>${item.ja_nein}</td>
                     <td>${item.uhrzeit}</td>
                     <td>${item.begruendung}</td>
