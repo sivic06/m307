@@ -14,14 +14,31 @@
     </header>
     <main>
       <form id="activity-form">
-        <label for="aktivitaet">Aktivität</label>
+        <label for="aktivitaet">Aktivität Beschreibung</label>
         <input type="text" name="aktivitaet" placeholder="Aktivität" required />
-        <label for="coolness">Kuhlheit</label>
-        <input type="number" name="coolness" min="1" max="10" placeholder="Coolness (1-10)" required/>
-        <label for="kosten">Kosten</label>
-        <input type="number" name="kosten" placeholder="Kosten" required />
-        <label for="zeitaufwand">Zeitaufwand</label>
-        <input type="text" name="zeitaufwand" placeholder="Zeitaufwand" required />
+        <label for="coolness">Kuhlheit (Skala 1-10)</label>
+        <input
+          type="number"
+          name="coolness"
+          min="1"
+          max="10"
+          placeholder="Coolness (1-10)"
+          required
+        />
+        <label for="kosten">Kosten in CHF</label>
+        <input
+          type="number"
+          name="kosten"
+          placeholder="Kosten in CHF"
+          required
+        />
+        <label for="zeitaufwand">Zeitaufwand anhand eines Beispiels</label>
+        <input
+          type="text"
+          name="zeitaufwand"
+          placeholder="Zeitaufwand (z.B. Salatwaschen, Karotten rüsten)"
+          required
+        />
         <button type="submit">Speichern</button>
       </form>
     </main>
