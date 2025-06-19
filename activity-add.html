@@ -15,20 +15,13 @@
     <main>
       <form id="activity-form">
         <label for="aktivitaet">Aktivität</label>
-        <input name="aktivitaet" placeholder="Aktivität" required />
+        <input type="text" name="aktivitaet" placeholder="Aktivität" required />
         <label for="coolness">Kuhlheit</label>
-        <input
-          name="coolness"
-          type="number"
-          min="1"
-          max="10"
-          placeholder="Coolness (1-10)"
-          required
-        />
+        <input type="number" name="coolness" min="1" max="10" placeholder="Coolness (1-10)" required/>
         <label for="kosten">Kosten</label>
-        <input name="kosten" placeholder="Kosten" required />
+        <input type="number" name="kosten" placeholder="Kosten" required />
         <label for="zeitaufwand">Zeitaufwand</label>
-        <input name="zeitaufwand" placeholder="Zeitaufwand" required />
+        <input type="number" name="zeitaufwand" placeholder="Zeitaufwand" required />
         <button type="submit">Speichern</button>
       </form>
     </main>
