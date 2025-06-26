@@ -138,7 +138,14 @@ function setupActivityForm() {
         const form = e.target;
 
 
-        if (form.aktivitaet.value.trim().toLowerCase() === "illegale sachen machen,") {
+        const verboteneBegriffe = [
+            "illegale sachen machen",
+            "drogen nehmen",
+            "diebstahl",
+            "Essen im Schulzimmer"
+        ];
+
+        if (verboteneBegriffe.includes(form.aktivitaet.value.trim().toLowerCase())) {
             alert("Diese Aktivität ist nicht erlaubt.");
             return;
         }
