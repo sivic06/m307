@@ -177,16 +177,16 @@ function setupActivityForm() {
 
 // --- Orte bearbeiten ---
 function editPlaceRow(tr, item) {
-  tr.innerHTML = `
-    <td><input value="${item.ort}" id="edit-ort"></td>
-    <td><input value="${item.kanton}" id="edit-kanton"></td>
-    <td><input value="${item.zeitabhb}" id="edit-zeitabhb" type="time"></td>
-    <td><input value="${item.begruendung}" id="edit-begruendung"></td>
+tr.innerHTML = `
+    <td><input class="edit_sponti" value="${item.ort}" id="edit-ort"></td>
+    <td><input class="edit_sponti" value="${item.kanton}" id="edit-kanton"></td>
+    <td><input class="edit_sponti" value="${item.zeitabhb}" id="edit-zeitabhb" type="time"></td>
+    <td><input class="edit_sponti" value="${item.begruendung}" id="edit-begruendung"></td>
     <td>
-      <button onclick="savePlace('${item.id}')">Speichern</button>
-      <button onclick="loadPlaces()">Abbrechen</button>
+        <button onclick="savePlace('${item.id}')">Speichern</button>
+        <button onclick="loadPlaces()">Abbrechen</button>
     </td>
-  `;
+`;
 }
 function savePlace(id) {
   fetch(pbURL + "/place/records/" + id, {
@@ -205,15 +205,15 @@ window.savePlace = savePlace;
 // --- Daten bearbeiten ---
 function editDateRow(tr, item) {
   tr.innerHTML = `
-    <td><input type="date" value="${item.datum.slice(0,10)}" id="edit-datum"></td>
+    <td><input class="edit_sponti" type="date" value="${item.datum.slice(0,10)}" id="edit-datum"></td>
     <td>
-      <select id="edit-ja_nein">
+      <select class="edit_sponti" id="edit-ja_nein">
         <option value="Ja" ${item.ja_nein === "Ja" ? "selected" : ""}>Ja</option>
         <option value="Nein" ${item.ja_nein === "Nein" ? "selected" : ""}>Nein</option>
       </select>
     </td>
-    <td><input type="time" value="${item.uhrzeit}" id="edit-uhrzeit"></td>
-    <td><input value="${item.begruendung}" id="edit-begruendung"></td>
+    <td><input class="edit_sponti" type="time" value="${item.uhrzeit}" id="edit-uhrzeit"></td>
+    <td><input class="edit_sponti" value="${item.begruendung}" id="edit-begruendung"></td>
     <td>
       <button onclick="saveDate('${item.id}')">Speichern</button>
       <button onclick="loadDates()">Abbrechen</button>
@@ -237,10 +237,10 @@ window.saveDate = saveDate;
 // --- Aktivitäten bearbeiten ---
 function editActivityRow(tr, item) {
   tr.innerHTML = `
-    <td><input value="${item.aktivitaet}" id="edit-aktivitaet"></td>
-    <td><input type="number" min="1" max="10" value="${item.coolness}" id="edit-coolness"></td>
-    <td><input type="number" value="${item.kosten}" id="edit-kosten"></td>
-    <td><input value="${item.zeitaufwand}" id="edit-zeitaufwand"></td>
+    <td><input class="edit_sponti" value="${item.aktivitaet}" id="edit-aktivitaet"></td>
+    <td><input class="edit_sponti" type="number" min="1" max="10" value="${item.coolness}" id="edit-coolness"></td>
+    <td><input class="edit_sponti" type="number" value="${item.kosten}" id="edit-kosten"></td>
+    <td><input class="edit_sponti" value="${item.zeitaufwand}" id="edit-zeitaufwand"></td>
     <td>
       <button onclick="saveActivity('${item.id}')">Speichern</button>
       <button onclick="loadActivities()">Abbrechen</button>
