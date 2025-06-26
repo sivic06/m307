@@ -136,6 +136,14 @@ function setupActivityForm() {
     document.getElementById("activity-form").onsubmit = function(e) {
         e.preventDefault();
         const form = e.target;
+
+
+        if (form.aktivitaet.value.trim().toLowerCase() === "illegale sachen machen,") {
+            alert("Diese Aktivität ist nicht erlaubt.");
+            return;
+        }
+
+
         fetch(pbURL + '/activity/records', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
