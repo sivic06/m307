@@ -14,7 +14,7 @@ function loadPlaces() {
                     <td>${item.kanton}</td> // Kanton einfügen
                     <td>${item.reisezeit}</td> // Reisezeit einfügen
                     <td>${item.begruendung}</td> // Begründung einfügen
-                    <td><button onclick="deletePlace('${item.id}')">Löschen</button></td> // Löschen-Button einfügen
+                    <td><button onclick="deletePlace('${item.id}')">Löschen</button></td>
                 `;
                 tbody.appendChild(tr); // Zeile zur Tabelle hinzufügen
             });
