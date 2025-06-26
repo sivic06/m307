@@ -157,22 +157,22 @@ window.deleteActivity = deleteActivity;
 
 // Aktivität hinzufügen
 function setupActivityForm() {
-  document.getElementById("activity-form").onsubmit = function (e) {
-    e.preventDefault();
-    const form = e.target;
-    fetch(pbURL + "/activity/records", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        aktivitaet: form.aktivitaet.value,
-        coolness: form.coolness.value,
-        kosten: form.kosten.value,
-        zeitaufwand: form.zeitaufwand.value,
-      }),
-    }).then(() => {
-      window.location = "activity-list.html";
-    });
-  };
+    document.getElementById("activity-form").onsubmit = function(e) {
+        e.preventDefault();
+        const form = e.target;
+        fetch(pbURL + '/activity/records', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                aktivitaet: form.aktivitaet.value,
+                coolness: form.coolness.value,
+                kosten: form.kosten.value,
+                zeitaufwand: form.zeitaufwand.value
+            })
+        }).then(() => {
+            window.location = "activity-list.html";
+        });
+    };
 }
 
 // --- Orte bearbeiten ---
